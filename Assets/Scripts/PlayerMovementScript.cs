@@ -17,6 +17,11 @@ public class PlayerMovementScript : MonoBehaviour
     // Checks whether the player is touching the ground or not
     public bool grounded = false;
 
+    private void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +30,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         // Moves the gameObject left and right and sprinting
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
-
+        
         // Makes the player jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
@@ -33,7 +38,8 @@ public class PlayerMovementScript : MonoBehaviour
         }
 
         // Flips the image when the character changes direction
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
+            )
         {
             rb.transform.localScale = new Vector3(-1, 1, 1);
         }
