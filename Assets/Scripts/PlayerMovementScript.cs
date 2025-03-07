@@ -17,10 +17,7 @@ public class PlayerMovementScript : MonoBehaviour
     // Checks whether the player is touching the ground or not
     public bool grounded = false;
 
-    private void Start()
-    {
-
-    }
+    public AudioSource landingSound;
 
     // Update is called once per frame
     void Update()
@@ -32,16 +29,15 @@ public class PlayerMovementScript : MonoBehaviour
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
         
         // Makes the player jump
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded)
         {
-            rb.AddForce(Vector2.up * 500);
+            rb.AddForce(Vector2.up * 100);
         }
 
         // Flips the image when the character changes direction
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)
-            )
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            rb.transform.localScale = new Vector3(-1, 1, 1);
+            rb.transform.localScale = new Vector3(1, -1, 1);
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -70,6 +66,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (collision.gameObject.tag == ("Ground"))
         {
             grounded = true;
+            landingSound.Play();
         }
     }
 
