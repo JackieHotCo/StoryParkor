@@ -66,7 +66,14 @@ public class PlayerMovementScript : MonoBehaviour
         if (collision.gameObject.tag == ("Ground"))
         {
             grounded = true;
-            landingSound.Play();
+            try
+            {
+                landingSound.Play();
+            }
+            catch
+            {
+                Debug.Log("Need to add sound");
+            }
         }
     }
 

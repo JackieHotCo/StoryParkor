@@ -16,7 +16,14 @@ public class BarkScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            bark.Play();
+            try
+            {
+                bark.Play();
+            } catch
+            {
+                Debug.Log("Need to add sound");
+            }
+            
             foreach (GameObject stone in breakable)
             {
                 Destroy(stone);
@@ -29,7 +36,7 @@ public class BarkScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("stone");
-        if (other.gameObject.tag == ("Breakable"))
+        if (other.gameObject.CompareTag("Breakable"))
         {
             
             breakable.Add(other.gameObject);
@@ -38,7 +45,7 @@ public class BarkScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == ("Breakable"))
+        if (other.gameObject.CompareTag("Breakable"))
         {
             breakable.Remove(other.gameObject);
         }
