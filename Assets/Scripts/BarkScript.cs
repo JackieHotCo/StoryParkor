@@ -16,7 +16,14 @@ public class BarkScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            bark.Play();
+            try
+            {
+                bark.Play();
+            } catch
+            {
+                Debug.Log("Need to add sound");
+            }
+            
             foreach (GameObject stone in breakable)
             {
                 Destroy(stone);
