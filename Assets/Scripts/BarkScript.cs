@@ -29,7 +29,7 @@ public class BarkScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("stone");
-        if (other.gameObject.tag == ("Breakable"))
+        if (other.gameObject.CompareTag("Breakable"))
         {
             
             breakable.Add(other.gameObject);
@@ -38,7 +38,7 @@ public class BarkScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == ("Breakable"))
+        if (other.gameObject.CompareTag("Breakable"))
         {
             breakable.Remove(other.gameObject);
         }
