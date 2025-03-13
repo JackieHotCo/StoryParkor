@@ -100,7 +100,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4379afe662da3433b957378b000c672f, type: 3}
   m_Resource: {fileID: 8300000, guid: 4379afe662da3433b957378b000c672f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 6533192179986795090}
   bc: {fileID: 8843762875713542345}
-  grounded: 0
+  jumpVelocity: 5
   landingSound: {fileID: 7027372858059597083}
 --- !u!50 &6533192179986795090
 Rigidbody2D:
@@ -431,7 +431,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a62d621a69a0f4c13bff614a4d6c7757, type: 3}
   m_Resource: {fileID: 8300000, guid: a62d621a69a0f4c13bff614a4d6c7757, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
