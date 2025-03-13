@@ -6,6 +6,7 @@ public class BarkScript : MonoBehaviour
 
     List<GameObject> breakable;
     public AudioSource bark;
+    public AudioSource breakingSound;
 
     void Start()
     {
@@ -23,10 +24,15 @@ public class BarkScript : MonoBehaviour
             {
                 Debug.Log("Need to add sound");
             }
-            
-            foreach (GameObject stone in breakable)
+
+            if (breakable.Count > 0)
             {
-                Destroy(stone);
+                breakingSound.Play();
+                foreach (GameObject stone in breakable)
+                {
+                    Destroy(stone);
+                }
+                breakable = new List<GameObject>();
             }
         }
     }
@@ -35,10 +41,8 @@ public class BarkScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("stone");
         if (other.gameObject.CompareTag("Breakable"))
         {
-            
             breakable.Add(other.gameObject);
         }
     }
