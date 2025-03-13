@@ -659,7 +659,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Corgi_0: 3303162963338793797
+      Corgi_1: 3633215670332739238
+      Corgi_10: -3796101902042959344
+      Corgi_11: 1519458689483580380
+      Corgi_12: -5664379106517444743
+      Corgi_13: 6262324796307739833
+      Corgi_14: 6883539651926379689
+      Corgi_15: -5313855032852276287
+      Corgi_16: 640693343615369201
+      Corgi_17: -579654341739006885
+      Corgi_18: -3378374816587834134
+      Corgi_19: 3770285241800891254
+      Corgi_2: 8088978019535230534
+      Corgi_20: 5415324704747347446
+      Corgi_21: 3522270162197232844
+      Corgi_3: 333754336707381594
+      Corgi_4: -3342026492208365002
+      Corgi_5: -4798335784183087145
+      Corgi_6: 144090657619084323
+      Corgi_7: -2609252429119786430
+      Corgi_8: -462883597735353414
+      Corgi_9: -1084305712119191119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

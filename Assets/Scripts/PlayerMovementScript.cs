@@ -15,7 +15,9 @@ public class PlayerMovementScript : MonoBehaviour
     public BoxCollider2D bc;
 
     // Checks whether the player is touching the ground or not
-    public bool grounded = false;
+    bool grounded = false;
+
+    public int jumpVelocity;
 
     public AudioSource landingSound;
 
@@ -31,7 +33,7 @@ public class PlayerMovementScript : MonoBehaviour
         // Makes the player jump
         if (Input.GetKey(KeyCode.Space) && grounded)
         {
-            rb.AddForce(Vector2.up * 100);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
         }
 
         // Flips the image when the character changes direction
