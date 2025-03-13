@@ -8,6 +8,8 @@ public class BarkScript : MonoBehaviour
     public AudioSource bark;
     public AudioSource breakingSound;
 
+    public Animator flower;
+
     void Start()
     {
         breakable = new List<GameObject>();
@@ -44,6 +46,11 @@ public class BarkScript : MonoBehaviour
         if (other.gameObject.CompareTag("Breakable"))
         {
             breakable.Add(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Flower"))
+        {
+            flower.SetBool("IsCrouching", true);
         }
     }
 
