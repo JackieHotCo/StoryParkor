@@ -8,15 +8,25 @@ public class CameraScript : MonoBehaviour
     public float xOffset = 10f;
     // The y coordinates of the camera
     public float yOffset = 10f;
+
+    public GameObject target;
     // Location of the player
-    public Transform target;
+    //public Transform target;
+    Vector3 newPos;
 
     // Update is called once per frame
     void Update()
     {
-        // Gets new location of the camera
-        Vector3 newPos = new Vector3(target.position.x + xOffset, target.position.y + yOffset, -10f);
-        // Changes the position of the camera to the new position
+
+        if (target.transform.localScale.y == 1)
+        {
+            newPos = new Vector3(target.transform.position.x + xOffset, target.transform.position.y + yOffset, -10f);
+            // Changes the position of the camera to the new position
+            
+        } else
+        {
+            newPos = new Vector3(target.transform.position.x - xOffset, target.transform.position.y + yOffset, -10f);
+        }
         transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
     }
 }
