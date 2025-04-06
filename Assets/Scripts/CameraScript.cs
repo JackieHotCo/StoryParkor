@@ -11,12 +11,20 @@ public class CameraScript : MonoBehaviour
 
     public GameObject target;
     // Location of the player
-    //public Transform target;
+    // public Transform target;
     Vector3 newPos;
+
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
     {
+        //animator.SetBool("Shake", false);
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            //ToDo: play animation
+            animator.SetBool("Shake", true);
+        }
 
         if (target.transform.localScale.y == 1)
         {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class BarkScript : MonoBehaviour
@@ -10,6 +11,8 @@ public class BarkScript : MonoBehaviour
 
     public Animator flower;
 
+    public Animator cameraM;
+
     void Start()
     {
         breakable = new List<GameObject>();
@@ -17,7 +20,8 @@ public class BarkScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        cameraM.SetBool("Shake", false);
+        if (Input.GetKeyDown(KeyCode.E) && cameraM.GetBool("Shake"))
         {
             try
             {
@@ -36,9 +40,27 @@ public class BarkScript : MonoBehaviour
                 }
                 breakable = new List<GameObject>();
             }
+
+            Bark();
         }
     }
 
+    private void Bark()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            //ToDo: play animation
+            cameraM.SetBool("Shake", true);
+            BarkCoroutine();
+        }
+    }
+
+    public IEnumerator BarkCoroutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+        
+        yield return null;
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
