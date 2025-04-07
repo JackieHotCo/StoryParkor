@@ -4,34 +4,32 @@ using System.Collections;
 public class RockSpawnerScript : MonoBehaviour
 {
     public GameObject rock;
-    public Transform spawnPosition;
-    public int[] timeToSpawn;
+    public int timeToSpawn;
+    public int timeToLive;
+
+    GameObject rockClone;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SpawnRock();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void SpawnRock()
+    //{
+    //    Instantiate(rock, transform);
+    //}
 
     void SpawnRock()
-    {
-        Instantiate(rock, spawnPosition);
-    }
-
-    void ShowRooms()
     {
         StartCoroutine(SpawnRocksCoroutine());
     }
 
     public IEnumerator SpawnRocksCoroutine()
     {
-        yield return new WaitForSeconds(1);
-        
+        yield return new WaitForSeconds(timeToSpawn);
+        rockClone = Instantiate(rock, gameObject.transform);
+        Destroy(rockClone, timeToLive);
+        StartCoroutine(SpawnRocksCoroutine());
         yield return null;
     }
 }
